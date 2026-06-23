@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Niyati ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    text-align:center;
+    color:white;
+}
+
+.container{
+    margin-top:80px;
+}
+
+.card{
+    background:white;
+    color:#333;
+    padding:30px;
+    border-radius:20px;
+    width:80%;
+    max-width:500px;
+    margin:auto;
+    box-shadow:0 0 20px rgba(0,0,0,0.2);
+}
+
+button{
+    background:#ff4081;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:10px;
+    font-size:18px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+select,input{
+    padding:10px;
+    width:80%;
+    margin:10px;
+    border-radius:8px;
+}
+
+.hidden{
+    display:none;
+}
+
+h1{
+    color:#ff4081;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card" id="step1">
+<h1>Hi Niyati ❤️</h1>
+<h2>☕ Coffee Peene Chale?</h2>
+<button onclick="nextStep('step1','step2')">Yes</button>
+</div>
+
+<div class="card hidden" id="step2">
+<h1>Select State</h1>
+
+<select id="state">
+<option>Jharkhand</option>
+</select>
+
+<br>
+
+<button onclick="nextStep('step2','step3')">Next</button>
+</div>
+
+<div class="card hidden" id="step3">
+<h1>Select District</h1>
+
+<select id="district">
+<option>Bokaro</option>
+</select>
+
+<br>
+
+<button onclick="nextStep('step3','step4')">Next</button>
+</div>
+
+<div class="card hidden" id="step4">
+<h1>Select Restaurant 🍕</h1>
+
+<select id="restaurant">
+<option>Domino's Pizza</option>
+</select>
+
+<br>
+
+<button onclick="nextStep('step4','step5')">Next</button>
+</div>
+
+<div class="card hidden" id="step5">
+<h1>Select Date 📅</h1>
+
+<input type="date" id="date">
+
+<br>
+
+<button onclick="showFinal()">Confirm</button>
+</div>
+
+<div class="card hidden" id="final">
+<h1>❤️ Niyati ❤️</h1>
+
+<h2>I Like You 😊</h2>
+
+<p>
+Coffee ☕ + Domino's 🍕 + Your Smile 😊
+= Perfect Day ❤️
+</p>
+
+<p id="selectedDate"></p>
+
+<h3>
+Will You Join Me For A Coffee Date?
+</h3>
+
+<h2>❤️ From Sushil ❤️</h2>
+
+</div>
+
+</div>
+
+<script>
+
+function nextStep(current,next){
+document.getElementById(current).classList.add("hidden");
+document.getElementById(next).classList.remove("hidden");
+}
+
+function showFinal(){
+
+var date=document.getElementById("date").value;
+
+document.getElementById("step5").classList.add("hidden");
+document.getElementById("final").classList.remove("hidden");
+
+document.getElementById("selectedDate").innerHTML=
+"Selected Date : <b>"+date+"</b>";
+}
+
+</script>
+
+</body>
+</html>
